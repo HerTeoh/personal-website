@@ -1,7 +1,7 @@
 const milestones = [
   { label: "Data Engineer", sub: "Neuron Mobility" },
   { label: "Operations Excellence", sub: "Neuron Mobility" },
-  { label: "Business Owner", sub: "F&B" },
+  { label: "Entrepreneur", sub: "Fitness" },
   { label: "Assistant Portfolio Manager", sub: "Singular Asset Management" },
 ];
 
