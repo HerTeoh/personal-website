@@ -2,8 +2,8 @@ import Image from "next/image";
 
 const milestones = [
   { year: "Early career", label: "Data Engineer" },
-  { year: "In between", label: "Entrepreneur" },
-  { year: "Now", label: "Portfolio Management" },
+  { year: "Then", label: "Neuron Mobility" },
+  { year: "Now", label: "Singular Asset Management" },
 ];
 
 export default function About() {
@@ -38,16 +38,21 @@ export default function About() {
               how to think in systems, how to ask better questions.
             </p>
             <p>
-              Then I took a detour. I ran my own business for a stretch — which
-              is really just another way of saying I learned what it meant to
-              be accountable for outcomes, not just outputs. It was humbling
-              and formative in equal measure.
+              From there I moved into operations and strategy at{" "}
+              <span className="text-foreground font-medium">Neuron Mobility</span>,
+              one of Southeast Asia&apos;s leading shared e-scooter companies.
+              That chapter taught me what it meant to be accountable for
+              outcomes at scale — fast-moving, high-stakes, and formative in
+              equal measure.
             </p>
             <p>
-              Now I work in portfolio management, and it turns out all those
-              threads connect more than I expected. The analytical rigour, the
-              entrepreneurial instinct, the habit of seeing things whole — they
-              all show up at the desk.
+              Now I work as an Assistant Portfolio Manager at{" "}
+              <span className="text-foreground font-medium">
+                Singular Asset Management
+              </span>
+              , and it turns out all those threads connect more than I expected.
+              The analytical rigour, the operational instinct, the habit of
+              seeing things whole — they all show up at the desk.
             </p>
             <p className="text-foreground font-medium">
               I&apos;m a builder at heart. Always have been.
