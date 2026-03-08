@@ -82,7 +82,7 @@ export default function About() {
 
         {/* Right — image */}
         <div className="relative">
-          <div className="aspect-square w-full max-w-xs mx-auto lg:mx-0 rounded-2xl overflow-hidden bg-muted">
+          <div className="relative aspect-square w-full max-w-xs mx-auto lg:mx-0 rounded-2xl overflow-hidden bg-muted">
             <Image
               src="/her-portrait.jpg"
               alt="Her Teoh"
