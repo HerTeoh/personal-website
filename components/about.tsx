@@ -2,8 +2,8 @@ import Image from "next/image";
 
 const milestones = [
   { label: "Data Engineer", sub: "Neuron Mobility" },
-  { label: "Operations Excellence Lead", sub: "Neuron Mobility" },
-  { label: "Owner Operator", sub: "S30 Tanjong Pagar" },
+  { label: "Operations Excellence", sub: "Neuron Mobility" },
+  { label: "Business Owner", sub: "F&B" },
   { label: "Investment Analyst", sub: "Singular Asset Management" },
 ];
 
@@ -31,35 +31,33 @@ export default function About() {
 
           <div className="space-y-5 font-sans text-base leading-relaxed text-muted-foreground">
             <p>
-              Her joined{" "}
+              I joined{" "}
               <span className="text-foreground">Neuron Mobility</span> in 2019
-              as a Data Engineer — the sole data engineer as the company scaled
-              from 1 to 20 cities. He built and maintained the data
-              infrastructure on AWS, managed Tableau Server, and worked end-to-end
-              across data collection, pipeline development, and analysis.
+              as a Data Engineer, the sole data engineer as the company scaled
+              from 1 to 20 cities. I built and maintained the data
+              infrastructure on AWS, managed Tableau Server, and worked
+              end-to-end across data collection, pipeline development, and
+              analysis.
             </p>
             <p>
-              He later founded and led Neuron&apos;s Global Operations
-              Excellence team under the COO, driving efficiency across service
-              delivery, fleet operations, and regional markets. The team cut
-              labour costs as a percentage of net revenue by over 11 points in
-              H1 2022 and led demand-side S&amp;OP at the eight-figure level.
+              I later led the Global Operations Excellence team under the COO,
+              driving efficiency across service delivery, fleet operations, and
+              regional markets. The team reduced labour costs as a percentage
+              of net revenue by over 11 points in H1 2022 and managed
+              demand-side S&amp;OP at the eight-figure level.
             </p>
             <p>
-              After Neuron, Her launched and operated{" "}
-              <span className="text-foreground">S30 Tanjong Pagar</span> at 137
-              Cecil Street — the fitness franchise&apos;s first location outside
-              Australia. He managed market entry, fit-out, staffing, pricing, and
-              community growth, achieving six-figure annual revenue before a
-              successful ownership transition.
+              After Neuron, I launched and operated a food and beverage
+              business in Singapore, handling everything from market entry and
+              fit-out to staffing and community growth. I completed a
+              successful ownership transition before moving into finance.
             </p>
             <p>
-              He is now an Investment Analyst at{" "}
+              I am now an Investment Analyst at{" "}
               <span className="text-foreground">Singular Asset Management</span>,
               focused on public equities across Asia with an emphasis on ASEAN
-              markets. His academic background combines Computer Science (Data
-              Science &amp; Statistics) and Business (Strategic Finance) from
-              Minerva University.
+              markets. My academic background combines Computer Science and
+              Business from Minerva University.
             </p>
           </div>
 
@@ -84,13 +82,13 @@ export default function About() {
 
         {/* Right — image */}
         <div className="relative">
-          <div className="aspect-[3/4] w-full max-w-sm lg:max-w-none rounded-2xl overflow-hidden bg-muted">
+          <div className="aspect-square w-full max-w-xs mx-auto lg:mx-0 rounded-2xl overflow-hidden bg-muted">
             <Image
               src="/her-portrait.jpg"
               alt="Her Teoh"
               fill
-              className="object-cover object-[center_20%] scale-125"
-              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="object-cover object-[center_15%] scale-110"
+              sizes="(max-width: 1024px) 320px, 400px"
             />
           </div>
         </div>
