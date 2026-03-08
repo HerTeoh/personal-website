@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Core palette */
+  --background: #FAF7F2;        /* warm cream */
+  --foreground: #2C1F14;        /* dark brown */
+  --muted: #EDE5D8;             /* warm taupe */
+  --muted-foreground: #7A6552;  /* medium warm brown */
+  --accent: #C4622D;            /* terracotta */
+  --accent-foreground: #FAF7F2; /* cream on terracotta */
+  --border: #DDD0BC;            /* warm border */
+  --card: #F5EFE6;              /* slightly deeper cream */
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background-color: var(--accent);
+  color: var(--accent-foreground);
+}
