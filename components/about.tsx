@@ -27,7 +27,7 @@ export default function About() {
           <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-normal text-foreground leading-snug text-balance mb-8">
             A winding path that{" "}
             <em className="italic text-accent">made sense</em>{" "}
-            in hindsight.
+            in hindsight
           </h2>
 
           <div className="space-y-5 font-sans text-base leading-relaxed text-muted-foreground">
@@ -80,20 +80,14 @@ export default function About() {
 
         {/* Right — image */}
         <div className="relative">
-          <div className="aspect-[4/5] w-full max-w-sm lg:max-w-none rounded-2xl overflow-hidden bg-muted">
+          <div className="aspect-square w-full max-w-sm lg:max-w-none rounded-2xl overflow-hidden bg-muted">
             <Image
               src="/her-portrait.jpg"
-              alt="Her Teoh — a warm editorial portrait"
+              alt="Her Teoh"
               fill
-              className="object-cover"
+              className="object-cover object-top"
               sizes="(max-width: 1024px) 100vw, 50vw"
             />
-          </div>
-          {/* Terracotta accent card */}
-          <div className="absolute -bottom-6 -left-6 hidden lg:block px-6 py-4 bg-accent rounded-xl shadow-lg">
-            <p className="font-serif italic text-accent-foreground text-sm leading-relaxed">
-              &ldquo;Find the signal,<br />follow it.&rdquo;
-            </p>
           </div>
         </div>
       </div>

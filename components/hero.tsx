@@ -55,10 +55,7 @@ export default function Hero() {
       </main>
 
       {/* Bottom scroll hint */}
-      <footer className="flex items-center justify-between">
-        <span className="font-sans text-xs text-muted-foreground tracking-widest uppercase">
-          2025
-        </span>
+      <footer className="flex items-center justify-end">
         <div className="flex items-center gap-2 text-muted-foreground">
           <span className="font-sans text-xs tracking-widest uppercase">Scroll</span>
           <svg
