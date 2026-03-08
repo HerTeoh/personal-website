@@ -1,10 +1,8 @@
-import Image from "next/image";
-
 const milestones = [
   { label: "Data Engineer", sub: "Neuron Mobility" },
   { label: "Operations Excellence", sub: "Neuron Mobility" },
   { label: "Business Owner", sub: "F&B" },
-  { label: "Investment Analyst", sub: "Singular Asset Management" },
+  { label: "Assistant Portfolio Manager", sub: "Singular Asset Management" },
 ];
 
 export default function About() {
@@ -26,38 +24,45 @@ export default function About() {
         {/* Left — text */}
         <div>
           <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-normal text-foreground leading-snug text-balance mb-8">
-            Six years across data, operations, and entrepreneurship
+            A non-linear career, deliberately built.
           </h2>
 
           <div className="space-y-5 font-sans text-base leading-relaxed text-muted-foreground">
             <p>
-              I joined{" "}
-              <span className="text-foreground">Neuron Mobility</span> in 2019
-              as a Data Engineer, the sole data engineer as the company scaled
-              from 1 to 20 cities. I built and maintained the data
-              infrastructure on AWS, managed Tableau Server, and worked
-              end-to-end across data collection, pipeline development, and
-              analysis.
+              I started with an unconventional choice:{" "}
+              <span className="text-foreground">Minerva University</span>, a
+              globally mobile programme where students spend four years living
+              and studying across seven cities, from San Francisco to Seoul,
+              Berlin to Buenos Aires. It was rigorous, internationally minded,
+              and nothing like a traditional degree.
             </p>
             <p>
-              I later led the Global Operations Excellence team under the COO,
-              driving efficiency across service delivery, fleet operations, and
-              regional markets. The team reduced labour costs as a percentage
-              of net revenue by over 11 points in H1 2022 and managed
-              demand-side S&amp;OP at the eight-figure level.
+              My career began at{" "}
+              <span className="text-foreground">Neuron Mobility</span> in 2019,
+              where I joined as the company&apos;s first and sole Data Engineer
+              as the business scaled from one to twenty cities. I built the data
+              infrastructure on AWS from the ground up, owned the Tableau
+              environment, and worked end-to-end across collection, pipeline
+              development, and analysis. My scope expanded from data into
+              operations. I moved into a Global Operations Excellence role under
+              the COO, leading cross-regional initiatives in service delivery,
+              fleet efficiency, and supply planning, driving measurable
+              improvements in cost efficiency across regional markets.
             </p>
             <p>
-              After Neuron, I launched and operated a food and beverage
-              business in Singapore, handling everything from market entry and
-              fit-out to staffing and community growth. I completed a
-              successful ownership transition before moving into finance.
+              I left Neuron to pursue a different kind of challenge. I brought a
+              franchise brand into Singapore, handling market entry, fit-out,
+              hiring, and day-to-day operations before completing a successful
+              ownership transition. It was a hands-on lesson in what it takes to
+              build and run something from scratch.
             </p>
             <p>
-              I am now an Investment Analyst at{" "}
+              I am now an Assistant Portfolio Manager at{" "}
               <span className="text-foreground">Singular Asset Management</span>,
               focused on public equities across Asia with an emphasis on ASEAN
-              markets. My academic background combines Computer Science and
-              Business from Minerva University.
+              markets. I bring to the role what the earlier chapters gave me:
+              analytical rigour, operational perspective, and a comfort with
+              complexity.
             </p>
           </div>
 
@@ -83,12 +88,10 @@ export default function About() {
         {/* Right — image */}
         <div className="relative">
           <div className="relative aspect-square w-full max-w-xs mx-auto lg:mx-0 rounded-2xl overflow-hidden bg-muted">
-            <Image
+            <img
               src="/her-portrait.jpg"
               alt="Her Teoh"
-              fill
-              className="object-cover object-[center_15%] scale-110"
-              sizes="(max-width: 1024px) 320px, 400px"
+              className="absolute inset-0 w-full h-full object-cover object-[center_15%] scale-110"
             />
           </div>
         </div>
