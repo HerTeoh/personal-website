@@ -54,7 +54,7 @@ const MailIcon = () => (
 const links = [
   {
     label: "LinkedIn",
-    href: "https://linkedin.com/in/herteoh",
+    href: "https://www.linkedin.com/in/herteoh/",
     icon: <LinkedInIcon />,
   },
   {
