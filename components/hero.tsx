@@ -48,8 +48,8 @@ export default function Hero() {
 
           {/* One-liner */}
           <p className="font-sans text-base md:text-lg text-muted-foreground leading-relaxed max-w-lg text-pretty">
-            From data pipelines to portfolios —{" "}
-            <span className="text-foreground font-medium">a builder at heart.</span>
+            Data. Operations. Entrepreneurship.{" "}
+            <span className="text-foreground font-medium">Now markets.</span>
           </p>
         </div>
       </main>
