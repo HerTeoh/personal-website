@@ -88,11 +88,18 @@ export default function About() {
         {/* Right — image */}
         <div className="relative">
           <div className="relative aspect-[3/4] w-full max-w-md mx-auto lg:mx-0 rounded-2xl overflow-hidden bg-muted">
-            <img
-              src="/her-portrait.jpg"
-              alt="Her Teoh"
-              className="absolute inset-0 w-full h-full object-cover object-[center_30%] scale-110"
-            />
+            <picture>
+              <source srcSet="/her-portrait.webp" type="image/webp" />
+              <img
+                src="/her-portrait.jpg"
+                alt="Portrait of Her Teoh"
+                width={960}
+                height={1280}
+                loading="lazy"
+                decoding="async"
+                className="absolute inset-0 w-full h-full object-cover object-[center_30%] scale-110"
+              />
+            </picture>
           </div>
         </div>
       </div>

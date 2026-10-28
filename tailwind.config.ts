@@ -12,6 +12,7 @@ module.exports = {
         muted: "var(--muted)",
         "muted-foreground": "var(--muted-foreground)",
         accent: "var(--accent)",
+        "accent-strong": "var(--accent-strong)",
         "accent-foreground": "var(--accent-foreground)",
         border: "var(--border)",
         card: "var(--card)",

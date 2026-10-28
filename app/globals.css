@@ -9,6 +9,7 @@
   --muted: #EDE5D8;             /* warm taupe */
   --muted-foreground: #7A6552;  /* medium warm brown */
   --accent: #C4622D;            /* terracotta */
+  --accent-strong: #A34C1D;     /* darker terracotta for text (WCAG AA on cream) */
   --accent-foreground: #FAF7F2; /* cream on terracotta */
   --border: #DDD0BC;            /* warm border */
   --card: #F5EFE6;              /* slightly deeper cream */
@@ -33,6 +34,17 @@ body {
 }
 
 ::selection {
-  background-color: var(--accent);
+  background-color: var(--accent-strong);
   color: var(--accent-foreground);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent-strong);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
