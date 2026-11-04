@@ -94,7 +94,13 @@ export default function Contact() {
 
         {/* Bottom credit line */}
         <p className="font-sans text-xs text-muted-foreground mt-20 tracking-wide">
-          Her Teoh &middot; Singapore
+          Her Teoh &middot; Singapore &middot;{" "}
+          <a
+            href="/credits"
+            className="hover:text-accent transition-colors duration-200"
+          >
+            Credits
+          </a>
         </p>
       </div>
     </footer>
