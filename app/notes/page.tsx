@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import FadeIn from "@/components/fade-in";
 import NotesList from "@/components/notes-list";
-import { formatDate, getAllNotes, statuses, themes } from "@/lib/notes";
+import { formatDate, getAllNotes, statuses } from "@/lib/notes";
+import { orderTags } from "@/lib/themes";
 
 export const metadata: Metadata = {
   title: "Notes",
@@ -12,11 +13,7 @@ export const metadata: Metadata = {
 
 export default function NotesPage() {
   const notes = getAllNotes();
-  const used = new Set(notes.flatMap((n) => n.tags));
-  const tags = [
-    ...themes.filter((t) => used.has(t)),
-    ...[...used].filter((t) => !themes.includes(t)).sort(),
-  ];
+  const tags = orderTags(notes.flatMap((n) => n.tags));
 
   const items = notes.map((n) => ({
     slug: n.slug,

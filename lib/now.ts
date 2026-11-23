@@ -50,6 +50,8 @@ export const now: {
     {
       title: "Reading",
       items: [
+        // The 3 most recent items in lib/reading.ts appear here automatically.
+        // Add anything else you're reading, e.g. a book:
         // { text: "Book title by Author: one line on why.", href: "https://..." },
       ],
     },

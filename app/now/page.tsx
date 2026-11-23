@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import FadeIn from "@/components/fade-in";
 import { now } from "@/lib/now";
+import { getReading } from "@/lib/reading";
 
 export const metadata: Metadata = {
   title: "Now",
@@ -18,7 +19,13 @@ function formatDate(iso: string) {
 }
 
 export default function NowPage() {
-  const sections = now.sections.filter((s) => s.items.length > 0);
+  // The three most recent items on /reading appear under Reading automatically.
+  const recent = getReading()
+    .slice(0, 3)
+    .map((r) => ({ text: r.source ? `${r.title}, ${r.source}` : r.title, href: r.url }));
+  const sections = now.sections
+    .map((s) => (s.title === "Reading" ? { ...s, items: [...recent, ...s.items] } : s))
+    .filter((s) => s.items.length > 0);
 
   return (
     <div className="min-h-screen bg-background px-6 md:px-16 lg:px-24 py-12">

@@ -19,8 +19,7 @@ export const statuses = {
 
 export type NoteStatus = keyof typeof statuses;
 
-/** Suggested themes, shown first in the filter. Other tags still work. */
-export const themes = ["ASEAN markets", "Operations", "Building", "Data"];
+export { themes } from "@/lib/themes";
 
 export type NoteMeta = {
   slug: string;
