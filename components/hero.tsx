@@ -1,3 +1,5 @@
+import FadeIn from "@/components/fade-in";
+
 export default function Hero() {
   return (
     <section className="min-h-screen flex flex-col justify-between px-6 md:px-16 lg:px-24 py-12 bg-background">
@@ -26,31 +28,39 @@ export default function Hero() {
       <main className="flex-1 flex flex-col justify-center py-20">
         <div className="max-w-4xl">
           {/* Location pill */}
+          <FadeIn>
           <div className="inline-flex items-center gap-2 mb-8">
             <span className="w-2 h-2 rounded-full bg-accent flex-shrink-0" aria-hidden="true" />
             <span className="font-sans text-xs text-muted-foreground tracking-widest uppercase">
               Singapore
             </span>
           </div>
+          </FadeIn>
 
           {/* Name */}
+          <FadeIn delay={0.15}>
           <h1 className="font-serif text-[clamp(3.5rem,12vw,9rem)] leading-none font-normal text-foreground text-balance">
             Her Teoh
           </h1>
+          </FadeIn>
 
           {/* Role */}
+          <FadeIn delay={0.3}>
           <p className="font-serif italic text-[clamp(1.1rem,3vw,2rem)] text-muted-foreground mt-4 mb-10">
             Assistant Portfolio Manager
           </p>
 
           {/* Divider */}
           <div className="w-16 h-px bg-accent mb-10" aria-hidden="true" />
+          </FadeIn>
 
           {/* One-liner */}
+          <FadeIn delay={0.45}>
           <p className="font-sans text-base md:text-lg text-muted-foreground leading-relaxed max-w-lg text-pretty">
             Data. Operations. Entrepreneurship.{" "}
             <span className="text-foreground font-medium">Now markets.</span>
           </p>
+          </FadeIn>
         </div>
       </main>
 

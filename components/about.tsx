@@ -1,3 +1,5 @@
+import FadeIn from "@/components/fade-in";
+
 const milestones = [
   { label: "Data Engineer", sub: "Neuron Mobility" },
   { label: "Operations Excellence", sub: "Neuron Mobility" },
@@ -22,7 +24,7 @@ export default function About() {
       {/* Two-column layout */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
         {/* Left — text */}
-        <div>
+        <FadeIn>
           <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-normal text-foreground leading-snug text-balance mb-8">
             A non-linear career, deliberately built.
           </h2>
@@ -67,7 +69,7 @@ export default function About() {
           </div>
 
           {/* Timeline chips */}
-          <div className="flex flex-wrap gap-3 mt-10">
+          <FadeIn delay={0.15} y={12} className="flex flex-wrap gap-3 mt-10">
             {milestones.map(({ label, sub }) => (
               <div
                 key={label}
@@ -82,11 +84,11 @@ export default function About() {
                 </span>
               </div>
             ))}
-          </div>
-        </div>
+          </FadeIn>
+        </FadeIn>
 
         {/* Right — image */}
-        <div className="relative">
+        <FadeIn delay={0.2} className="relative">
           <div className="relative aspect-[3/4] w-full max-w-md mx-auto lg:mx-0 rounded-2xl overflow-hidden bg-muted">
             <img
               src="/her-portrait.jpg"
@@ -94,7 +96,7 @@ export default function About() {
               className="absolute inset-0 w-full h-full object-cover object-[center_30%] scale-110"
             />
           </div>
-        </div>
+        </FadeIn>
       </div>
     </section>
   );

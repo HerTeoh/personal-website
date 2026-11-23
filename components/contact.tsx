@@ -51,13 +51,15 @@ const links = [
   },
 ];
 
+import FadeIn from "@/components/fade-in";
+
 export default function Contact() {
   return (
     <footer
       id="contact"
       className="px-6 md:px-16 lg:px-24 py-20 md:py-28 bg-background border-t border-border"
     >
-      <div className="max-w-4xl">
+      <FadeIn className="max-w-4xl">
         {/* Section label */}
         <div className="flex items-center gap-4 mb-12">
           <span className="w-8 h-px bg-accent" aria-hidden="true" />
@@ -102,7 +104,7 @@ export default function Contact() {
             Credits
           </a>
         </p>
-      </div>
+      </FadeIn>
     </footer>
   );
 }

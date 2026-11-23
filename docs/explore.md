@@ -45,7 +45,7 @@ visitor's browser, no server needed). Check the licence again before adopting. T
 
 | Status | Library | Good for | Licence / credit notes |
 | :-: | --- | --- | --- |
-| ⬜ | [Motion](https://motion.dev) (formerly Framer Motion) | Fade/slide-in on scroll, page transitions, hover effects in React. Easiest first step. | MIT |
+| ✅ | [Motion](https://motion.dev) (formerly Framer Motion) | Fade/slide-in on scroll, page transitions, hover effects in React. Easiest first step. | MIT. Adopted Nov 2026 for section fade-ins (`components/fade-in.tsx`). |
 | ⬜ | [GSAP](https://gsap.com) + ScrollTrigger | Scroll-driven storytelling, e.g. animating the career timeline as you scroll. | Free to use (incl. plugins) under GSAP's own licence, not open source. Read the terms. |
 | ⬜ | [Lenis](https://lenis.darkroom.engineering) | Smooth scrolling that makes scroll animations feel polished. | MIT |
 | ⬜ | [AutoAnimate](https://auto-animate.formkit.com) | One-line animations when lists change (e.g. filtering notes by tag). | MIT |

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { categoryOrder, credits } from "@/lib/credits";
+import FadeIn from "@/components/fade-in";
 
 export const metadata: Metadata = {
   title: "Credits — Her Teoh",
@@ -33,6 +34,7 @@ export default function CreditsPage() {
       </header>
 
       <main className="max-w-4xl py-20 md:py-28">
+        <FadeIn>
         <div className="flex items-center gap-4 mb-12">
           <span className="w-8 h-px bg-accent" aria-hidden="true" />
           <span className="font-sans text-xs text-muted-foreground tracking-widest uppercase">
@@ -47,10 +49,12 @@ export default function CreditsPage() {
           This site is built with open-source work, typefaces and ideas from
           people who chose to share them. Here they are, with thanks.
         </p>
+        </FadeIn>
 
         <div className="space-y-16">
           {groups.map(({ category, items }) => (
-            <section key={category} aria-labelledby={slug(category)}>
+            <FadeIn key={category}>
+            <section aria-labelledby={slug(category)}>
               <h2
                 id={slug(category)}
                 className="font-sans text-xs text-muted-foreground tracking-widest uppercase mb-6"
@@ -90,6 +94,7 @@ export default function CreditsPage() {
                 ))}
               </ul>
             </section>
+            </FadeIn>
           ))}
         </div>
 

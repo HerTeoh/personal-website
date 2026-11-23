@@ -114,6 +114,16 @@ export const credits: Credit[] = [
     category: "Icons & graphics",
   },
 
+  // Animation
+  {
+    name: "Motion",
+    creator: "Matt Perry & contributors",
+    href: "https://motion.dev",
+    license: "MIT",
+    usedFor: "Fade-in animations as sections scroll into view.",
+    category: "Animation",
+  },
+
   // Hosting & infrastructure
   {
     name: "GitHub Pages & GitHub Actions",
