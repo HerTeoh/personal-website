@@ -43,7 +43,7 @@ export const now: {
       title: "Building",
       items: [
         {
-          text: "This site. Recently added a credits page and some quiet animation. Next up: a place for short notes on what I'm learning.",
+          text: "This site. Recently added a credits page, some quiet animation and a notes section. Next up: writing the first real notes.",
         },
       ],
     },
