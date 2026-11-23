@@ -3,6 +3,9 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
+  # Adds a "Run workflow" button in the Actions tab, to redeploy main by hand
+  # (e.g. when a deploy fails for reasons outside the code).
+  workflow_dispatch:
 
 permissions:
   contents: read
