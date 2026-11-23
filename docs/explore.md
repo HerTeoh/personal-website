@@ -33,7 +33,7 @@ When something here gets adopted (an idea, a package, a component), move it into
 | ✅ | `/now` | What I'm reading, researching and working on this month. | Live Nov 2026. Edit `lib/now.ts` to update. |
 | ✅ | `/reading` (instead of `/bookshelf`) | Articles, Substack posts and essays worth passing on, with one-line takeaways. | Built Nov 2026. Add items in `lib/reading.ts`; the footer link appears once there's one. |
 | ⬜ | `/principles` or `/mental-models` | Lessons from Neuron and the franchise, applied to investing. | |
-| ⬜ | `/questions` | Open questions I'm working through, e.g. "Why do ASEAN mid-caps trade at a discount?" | |
+| ✅ | `/questions` | Open questions I'm working through, e.g. "Why do ASEAN mid-caps trade at a discount?" | Built Nov 2026. Add questions in `lib/questions.ts`; the footer link appears once there's one. |
 
 > Compliance check before publishing anything market-related: confirm what Singular's
 > policy allows, and add a "personal views, not investment advice" line to the footer.
