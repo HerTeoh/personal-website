@@ -37,12 +37,6 @@ export default function Terms() {
         copy or republish its content without permission.
       </p>
 
-      <h2>External links</h2>
-      <p>
-        This site links to third-party websites such as LinkedIn and GitHub. I
-        do not control those sites and am not responsible for their content.
-      </p>
-
       <h2>Liability</h2>
       <p>
         To the extent permitted by law, I am not liable for any loss or damage

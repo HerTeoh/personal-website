@@ -104,15 +104,6 @@ export const credits: Credit[] = [
     category: "Typography",
   },
 
-  // Icons & graphics
-  {
-    name: "Lucide",
-    creator: "Lucide contributors (forked from Feather by Cole Bemis)",
-    href: "https://lucide.dev",
-    license: "ISC",
-    usedFor: "LinkedIn and GitHub icon outlines in the contact section.",
-    category: "Icons & graphics",
-  },
 
   // Animation
   {

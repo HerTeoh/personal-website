@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import LegalPage from "@/components/legal-page";
-import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
@@ -50,18 +49,10 @@ export default function Privacy() {
         choice in local storage. It never leaves your device.
       </p>
 
-      <h2>Third-party links</h2>
-      <p>
-        Links to LinkedIn and GitHub take you to sites with their own privacy
-        policies. I am not responsible for how they handle your data.
-      </p>
-
       <h2>Your rights</h2>
       <p>
         Because no personal data that identifies you is stored, there is
-        usually nothing to access or delete. If you have a question or request
-        under Singapore&apos;s Personal Data Protection Act 2012, contact me via{" "}
-        <a href={site.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>.
+        usually nothing to access or delete.
       </p>
 
       <h2>Changes</h2>
