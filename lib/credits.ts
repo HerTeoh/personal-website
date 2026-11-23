@@ -68,6 +68,23 @@ export const credits: Credit[] = [
     category: "Framework & tooling",
   },
 
+  {
+    name: "Marked",
+    creator: "Christopher Jeffrey & contributors",
+    href: "https://marked.js.org",
+    license: "MIT",
+    usedFor: "Turning Markdown notes into web pages.",
+    category: "Framework & tooling",
+  },
+  {
+    name: "gray-matter",
+    creator: "Jon Schlinkert",
+    href: "https://github.com/jonschlinkert/gray-matter",
+    license: "MIT",
+    usedFor: "Reading each note's title, date, tags and stage.",
+    category: "Framework & tooling",
+  },
+
   // Styling
   {
     name: "Tailwind CSS",
@@ -122,6 +139,15 @@ export const credits: Credit[] = [
     href: "https://nownownow.com/about",
     license: "Idea",
     usedFor: "The /now page: what I'm focused on at the moment.",
+    category: "Ideas & inspiration",
+  },
+
+  {
+    name: "Digital garden growth stages",
+    creator: "Maggie Appleton",
+    href: "https://maggieappleton.com/garden-history",
+    license: "Idea",
+    usedFor: "The seedling, budding and evergreen stages on /notes.",
     category: "Ideas & inspiration",
   },
 
