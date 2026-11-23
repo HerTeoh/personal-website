@@ -5,6 +5,7 @@ import Analytics from "@/components/analytics";
 import CookieNotice from "@/components/cookie-notice";
 import { site } from "@/lib/site";
 import "./globals.css";
+import { MotionProvider } from "@/components/fade-in";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -64,7 +65,7 @@ export default function RootLayout({
         />
       </head>
       <body>
-        {children}
+        <MotionProvider>{children}</MotionProvider>
         <CookieNotice />
         <Analytics />
       </body>
