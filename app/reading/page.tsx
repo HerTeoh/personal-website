@@ -1,16 +1,16 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { pageMetadata } from "@/lib/seo";
 import FadeIn from "@/components/fade-in";
 import ReadingList from "@/components/reading-list";
 import { getNote } from "@/lib/notes";
 import { getReading, monthLabel } from "@/lib/reading";
 import { orderTags } from "@/lib/themes";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata("/reading", {
   title: "Reading",
   description:
     "Articles, Substack posts and essays Her Teoh found worth passing on, with a line on what stuck.",
-};
+});
 
 export default function ReadingPage() {
   const items = getReading().map((i) => {
@@ -23,15 +23,7 @@ export default function ReadingPage() {
   const tags = orderTags(items.flatMap((i) => i.tags ?? []));
 
   return (
-    <div className="min-h-screen bg-background px-6 md:px-16 lg:px-24 py-12">
-      <header>
-        <Link
-          href="/"
-          className="font-sans text-sm text-muted-foreground tracking-widest uppercase hover:text-foreground transition-colors duration-200"
-        >
-          &larr; HerTeoh.com
-        </Link>
-      </header>
+    <div className="min-h-screen bg-background px-6 md:px-16 lg:px-24 pb-12">
 
       <main className="max-w-4xl py-20 md:py-28">
         <FadeIn>

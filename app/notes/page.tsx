@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { pageMetadata } from "@/lib/seo";
 import FadeIn from "@/components/fade-in";
 import NotesList from "@/components/notes-list";
 import { formatDate, getAllNotes, statuses } from "@/lib/notes";
 import { orderTags } from "@/lib/themes";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata("/notes", {
   title: "Notes",
   description:
     "Short notes on what Her Teoh is learning across markets, operations, building and data.",
-};
+});
 
 export default function NotesPage() {
   const notes = getAllNotes();
@@ -26,15 +26,7 @@ export default function NotesPage() {
   }));
 
   return (
-    <div className="min-h-screen bg-background px-6 md:px-16 lg:px-24 py-12">
-      <header>
-        <Link
-          href="/"
-          className="font-sans text-sm text-muted-foreground tracking-widest uppercase hover:text-foreground transition-colors duration-200"
-        >
-          &larr; HerTeoh.com
-        </Link>
-      </header>
+    <div className="min-h-screen bg-background px-6 md:px-16 lg:px-24 pb-12">
 
       <main className="max-w-3xl py-20 md:py-28">
         <FadeIn>

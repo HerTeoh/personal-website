@@ -1,16 +1,16 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { pageMetadata } from "@/lib/seo";
 import FadeIn from "@/components/fade-in";
 import PrinciplesList from "@/components/principles-list";
 import { getNote } from "@/lib/notes";
 import { getPrinciples } from "@/lib/principles";
 import { orderTags } from "@/lib/themes";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata("/principles", {
   title: "Principles",
   description:
     "Lessons from data, operations and building a business, and how they carry into investing.",
-};
+});
 
 export default function PrinciplesPage() {
   const principles = getPrinciples();
@@ -34,15 +34,7 @@ export default function PrinciplesPage() {
   const tags = orderTags(principles.flatMap((p) => p.tags ?? []));
 
   return (
-    <div className="min-h-screen bg-background px-6 md:px-16 lg:px-24 py-12">
-      <header>
-        <Link
-          href="/"
-          className="font-sans text-sm text-muted-foreground tracking-widest uppercase hover:text-foreground transition-colors duration-200"
-        >
-          &larr; HerTeoh.com
-        </Link>
-      </header>
+    <div className="min-h-screen bg-background px-6 md:px-16 lg:px-24 pb-12">
 
       <main className="max-w-3xl py-20 md:py-28">
         <FadeIn>

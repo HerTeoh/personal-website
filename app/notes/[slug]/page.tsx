@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import JsonLd from "@/components/json-ld";
+import { pageMetadata } from "@/lib/seo";
+import { site } from "@/lib/site";
+import { article } from "@/lib/structured-data";
 import FadeIn from "@/components/fade-in";
 import { formatDate, getAllNotes, getNote, statuses } from "@/lib/notes";
 
@@ -15,10 +19,20 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const note = getNote((await params).slug);
   if (!note) return {};
-  return {
+  const meta = pageMetadata(`/notes/${note.slug}`, {
     title: note.title,
-    description: note.summary || undefined,
-    alternates: { canonical: `/notes/${note.slug}` },
+    description: note.summary || `A note by ${site.name}.`,
+  });
+  return {
+    ...meta,
+    openGraph: {
+      ...meta.openGraph,
+      type: "article",
+      publishedTime: note.date,
+      modifiedTime: note.updated ?? note.date,
+      authors: [site.name],
+      tags: note.tags,
+    },
   };
 }
 
@@ -28,15 +42,8 @@ export default async function NotePage({ params }: Params) {
   const status = statuses[note.status];
 
   return (
-    <div className="min-h-screen bg-background px-6 md:px-16 lg:px-24 py-12">
-      <header>
-        <Link
-          href="/notes"
-          className="font-sans text-sm text-muted-foreground tracking-widest uppercase hover:text-foreground transition-colors duration-200"
-        >
-          &larr; Notes
-        </Link>
-      </header>
+    <div className="min-h-screen bg-background px-6 md:px-16 lg:px-24 pb-12">
+      <JsonLd data={article(note)} />
 
       <main className="max-w-2xl py-20 md:py-28">
         <FadeIn>

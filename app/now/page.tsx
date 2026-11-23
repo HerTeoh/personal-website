@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { pageMetadata } from "@/lib/seo";
 import FadeIn from "@/components/fade-in";
 import { now } from "@/lib/now";
 import { getReading } from "@/lib/reading";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata("/now", {
   title: "Now",
   description: "What Her Teoh is focused on at the moment.",
-};
+});
 
 function formatDate(iso: string) {
   return new Date(`${iso}T00:00:00Z`).toLocaleDateString("en-GB", {
@@ -28,15 +28,7 @@ export default function NowPage() {
     .filter((s) => s.items.length > 0);
 
   return (
-    <div className="min-h-screen bg-background px-6 md:px-16 lg:px-24 py-12">
-      <header>
-        <Link
-          href="/"
-          className="font-sans text-sm text-muted-foreground tracking-widest uppercase hover:text-foreground transition-colors duration-200"
-        >
-          &larr; HerTeoh.com
-        </Link>
-      </header>
+    <div className="min-h-screen bg-background px-6 md:px-16 lg:px-24 pb-12">
 
       <main className="max-w-2xl py-20 md:py-28">
         <FadeIn>

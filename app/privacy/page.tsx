@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import LegalPage from "@/components/legal-page";
 import { site } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata("/privacy", {
   title: "Privacy Policy",
   description: "How herteoh.com handles visitor data: no cookies, anonymous page view counts only.",
-  alternates: { canonical: "/privacy" },
-};
+});
 
 export default function Privacy() {
   return (
