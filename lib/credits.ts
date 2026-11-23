@@ -151,6 +151,15 @@ export const credits: Credit[] = [
     category: "Ideas & inspiration",
   },
 
+  {
+    name: "Questions",
+    creator: "Patrick Collison",
+    href: "https://patrickcollison.com/questions",
+    license: "Idea",
+    usedFor: "The /questions page: open questions, thought about in public.",
+    category: "Ideas & inspiration",
+  },
+
   // Hosting & infrastructure
   {
     name: "GitHub Pages & GitHub Actions",

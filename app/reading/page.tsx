@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import FadeIn from "@/components/fade-in";
 import ReadingList from "@/components/reading-list";
+import { getNote } from "@/lib/notes";
 import { getReading, monthLabel } from "@/lib/reading";
 import { orderTags } from "@/lib/themes";
 
@@ -12,7 +13,13 @@ export const metadata: Metadata = {
 };
 
 export default function ReadingPage() {
-  const items = getReading().map((i) => ({ ...i, month: monthLabel(i.date) }));
+  const items = getReading().map((i) => {
+    // Catch links to notes that don't exist (e.g. a typo in the slug).
+    if (i.note && !getNote(i.note)) {
+      throw new Error(`lib/reading.ts: no note called "${i.note}" in content/notes/`);
+    }
+    return { ...i, month: monthLabel(i.date) };
+  });
   const tags = orderTags(items.flatMap((i) => i.tags ?? []));
 
   return (

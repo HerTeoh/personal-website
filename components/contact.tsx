@@ -1,6 +1,7 @@
 import Link from "next/link";
 import FadeIn from "@/components/fade-in";
 import { hasReading } from "@/lib/reading";
+import { hasQuestions } from "@/lib/questions";
 
 export default function Contact() {
   return (
@@ -35,6 +36,11 @@ export default function Contact() {
             {hasReading() && (
               <Link href="/reading" className="hover:text-foreground transition-colors duration-200">
                 Reading
+              </Link>
+            )}
+            {hasQuestions() && (
+              <Link href="/questions" className="hover:text-foreground transition-colors duration-200">
+                Questions
               </Link>
             )}
             <Link href="/now" className="hover:text-foreground transition-colors duration-200">
