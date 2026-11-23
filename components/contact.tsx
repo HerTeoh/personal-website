@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { site } from "@/lib/site";
+import FadeIn from "@/components/fade-in";
 
 const LinkedInIcon = () => (
   <svg
@@ -55,13 +56,14 @@ const links = [
   },
 ];
 
+
 export default function Contact() {
   return (
     <footer
       id="contact"
       className="px-6 md:px-16 lg:px-24 py-20 md:py-28 bg-background border-t border-border"
     >
-      <div className="max-w-4xl">
+      <FadeIn className="max-w-4xl">
         {/* Section label */}
         <div className="flex items-center gap-4 mb-12">
           <span className="w-8 h-px bg-accent" aria-hidden="true" />
@@ -111,9 +113,12 @@ export default function Contact() {
             <Link href="/terms" className="hover:text-foreground transition-colors duration-200">
               Terms
             </Link>
+            <Link href="/credits" className="hover:text-foreground transition-colors duration-200">
+              Credits
+            </Link>
           </nav>
         </div>
-      </div>
+      </FadeIn>
     </footer>
   );
 }
