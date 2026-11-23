@@ -4,7 +4,7 @@ const milestones = [
   { label: "Data Engineer", sub: "Neuron Mobility" },
   { label: "Operations Excellence", sub: "Neuron Mobility" },
   { label: "Entrepreneur", sub: "Fitness" },
-  { label: "Assistant Portfolio Manager", sub: "Singular Asset Management" },
+  { label: "Public Equities", sub: "Singular Asset Management" },
 ];
 
 export default function About() {
@@ -57,7 +57,7 @@ export default function About() {
               build and run something from scratch.
             </p>
             <p>
-              I am now an Assistant Portfolio Manager at{" "}
+              I now work at{" "}
               <span className="text-foreground">Singular Asset Management</span>,
               focused on public equities across Asia with an emphasis on ASEAN
               markets. I bring to the role what the earlier chapters gave me:

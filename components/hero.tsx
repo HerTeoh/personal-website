@@ -30,14 +30,9 @@ export default function Hero() {
           </h1>
           </FadeIn>
 
-          {/* Role */}
-          <FadeIn delay={0.3}>
-          <p className="font-serif italic text-[clamp(1.1rem,3vw,2rem)] text-muted-foreground mt-4 mb-10">
-            Assistant Portfolio Manager
-          </p>
-
           {/* Divider */}
-          <div className="w-16 h-px bg-accent mb-10" aria-hidden="true" />
+          <FadeIn delay={0.3}>
+          <div className="w-16 h-px bg-accent mt-10 mb-10" aria-hidden="true" />
           </FadeIn>
 
           {/* One-liner */}

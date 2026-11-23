@@ -3,7 +3,7 @@ import { categoryOrder, credits } from "@/lib/credits";
 import FadeIn from "@/components/fade-in";
 
 export const metadata: Metadata = {
-  title: "Credits — Her Teoh",
+  title: "Credits",
   description:
     "The open-source projects, fonts, tools and ideas this site is built on, with thanks to their creators.",
 };

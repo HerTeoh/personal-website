@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import LegalPage from "@/components/legal-page";
+import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
@@ -52,7 +53,9 @@ export default function Privacy() {
       <h2>Your rights</h2>
       <p>
         Because no personal data that identifies you is stored, there is
-        usually nothing to access or delete.
+        usually nothing to access or delete. If you have a question or request
+        under Singapore&apos;s Personal Data Protection Act 2012, contact me via{" "}
+        <a href={site.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>.
       </p>
 
       <h2>Changes</h2>
