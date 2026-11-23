@@ -5,6 +5,9 @@ import Analytics from "@/components/analytics";
 import CookieNotice from "@/components/cookie-notice";
 import { site } from "@/lib/site";
 import "./globals.css";
+import SiteHeader from "@/components/site-header";
+import SiteFooter from "@/components/site-footer";
+import { sectionLinks } from "@/lib/nav";
 import { MotionProvider } from "@/components/fade-in";
 
 const inter = Inter({
@@ -27,7 +30,6 @@ export const metadata: Metadata = {
   },
   description: site.description,
   authors: [{ name: site.name, url: site.url }],
-  alternates: { canonical: "/" },
   openGraph: {
     title: site.title,
     description: "From data pipelines to portfolios — a builder at heart.",
@@ -65,7 +67,11 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <MotionProvider>{children}</MotionProvider>
+        <MotionProvider>
+          <SiteHeader links={sectionLinks()} />
+          {children}
+          <SiteFooter />
+        </MotionProvider>
         <CookieNotice />
         <Analytics />
       </body>

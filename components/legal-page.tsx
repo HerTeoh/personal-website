@@ -1,4 +1,3 @@
-import Link from "next/link";
 
 export default function LegalPage({
   title,
@@ -10,13 +9,7 @@ export default function LegalPage({
   children: React.ReactNode;
 }) {
   return (
-    <main className="min-h-screen px-6 md:px-16 lg:px-24 py-12 bg-background">
-      <Link
-        href="/"
-        className="font-sans text-sm text-muted-foreground tracking-widest uppercase hover:text-foreground transition-colors duration-200"
-      >
-        &larr; HerTeoh.com
-      </Link>
+    <main className="min-h-screen px-6 md:px-16 lg:px-24 pb-12 bg-background">
 
       <article className="max-w-2xl mt-16 md:mt-24">
         <h1 className="font-serif text-4xl md:text-5xl font-normal text-foreground leading-tight mb-4">

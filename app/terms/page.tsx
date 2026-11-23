@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import LegalPage from "@/components/legal-page";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata("/terms", {
   title: "Terms & Conditions",
   description: "Terms of use for herteoh.com, including a note that nothing here is investment advice.",
-  alternates: { canonical: "/terms" },
-};
+});
 
 export default function Terms() {
   return (

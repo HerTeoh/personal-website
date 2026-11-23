@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { pageMetadata } from "@/lib/seo";
 import FadeIn from "@/components/fade-in";
 import QuestionsList from "@/components/questions-list";
 import { getNote } from "@/lib/notes";
 import { getQuestions, monthYear, type Question } from "@/lib/questions";
 import { orderTags } from "@/lib/themes";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata("/questions", {
   title: "Questions",
   description: "Open questions Her Teoh is thinking about, and where the thinking has got to.",
-};
+});
 
 function withLabels(q: Question) {
   // Catch links to notes that don't exist (e.g. a typo in the slug).
@@ -28,15 +28,7 @@ export default function QuestionsPage() {
   const tags = orderTags([...open, ...answered].flatMap((q) => q.tags ?? []));
 
   return (
-    <div className="min-h-screen bg-background px-6 md:px-16 lg:px-24 py-12">
-      <header>
-        <Link
-          href="/"
-          className="font-sans text-sm text-muted-foreground tracking-widest uppercase hover:text-foreground transition-colors duration-200"
-        >
-          &larr; HerTeoh.com
-        </Link>
-      </header>
+    <div className="min-h-screen bg-background px-6 md:px-16 lg:px-24 pb-12">
 
       <main className="max-w-3xl py-20 md:py-28">
         <FadeIn>

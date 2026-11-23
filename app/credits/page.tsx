@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { categoryOrder, credits } from "@/lib/credits";
 import FadeIn from "@/components/fade-in";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata("/credits", {
   title: "Credits",
   description:
     "The open-source projects, fonts, tools and ideas this site is built on, with thanks to their creators.",
-};
+});
 
 export default function CreditsPage() {
   const groups = categoryOrder
@@ -17,21 +18,7 @@ export default function CreditsPage() {
     .filter((g) => g.items.length > 0);
 
   return (
-    <div className="min-h-screen bg-background px-6 md:px-16 lg:px-24 py-12">
-      <header className="flex items-center justify-between">
-        <a
-          href="/"
-          className="font-sans text-sm text-muted-foreground hover:text-foreground transition-colors duration-200 tracking-widest uppercase"
-        >
-          HerTeoh.com
-        </a>
-        <a
-          href="/"
-          className="font-sans text-sm text-muted-foreground hover:text-foreground transition-colors duration-200 tracking-wide"
-        >
-          &larr; Home
-        </a>
-      </header>
+    <div className="min-h-screen bg-background px-6 md:px-16 lg:px-24 pb-12">
 
       <main className="max-w-4xl py-20 md:py-28">
         <FadeIn>
