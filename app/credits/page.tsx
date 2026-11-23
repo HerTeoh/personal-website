@@ -3,7 +3,7 @@ import { categoryOrder, credits } from "@/lib/credits";
 import FadeIn from "@/components/fade-in";
 
 export const metadata: Metadata = {
-  title: "Credits — Her Teoh",
+  title: "Credits",
   description:
     "The open-source projects, fonts, tools and ideas this site is built on, with thanks to their creators.",
 };
@@ -99,12 +99,8 @@ export default function CreditsPage() {
         </div>
 
         <p className="font-sans text-xs text-muted-foreground mt-20 tracking-wide max-w-xl leading-relaxed">
-          Spotted something of yours that isn&apos;t credited properly? Please
-          get in touch via the links on the{" "}
-          <a href="/#contact" className="underline hover:text-accent">
-            home page
-          </a>
-          .
+          Spotted something of yours that isn&apos;t credited properly? It
+          will be corrected as soon as it&apos;s noticed.
         </p>
       </main>
     </div>

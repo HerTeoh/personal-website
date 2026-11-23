@@ -4,7 +4,7 @@ const milestones = [
   { label: "Data Engineer", sub: "Neuron Mobility" },
   { label: "Operations Excellence", sub: "Neuron Mobility" },
   { label: "Entrepreneur", sub: "Fitness" },
-  { label: "Assistant Portfolio Manager", sub: "Singular Asset Management" },
+  { label: "Public Equities", sub: "Singular Asset Management" },
 ];
 
 export default function About() {
@@ -21,9 +21,7 @@ export default function About() {
         </span>
       </div>
 
-      {/* Two-column layout */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-        {/* Left — text */}
+      <div className="max-w-3xl">
         <FadeIn>
           <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-normal text-foreground leading-snug text-balance mb-8">
             A non-linear career, deliberately built.
@@ -59,7 +57,7 @@ export default function About() {
               build and run something from scratch.
             </p>
             <p>
-              I am now an Assistant Portfolio Manager at{" "}
+              I now work at{" "}
               <span className="text-foreground">Singular Asset Management</span>,
               focused on public equities across Asia with an emphasis on ASEAN
               markets. I bring to the role what the earlier chapters gave me:
@@ -85,24 +83,6 @@ export default function About() {
               </div>
             ))}
           </FadeIn>
-        </FadeIn>
-
-        {/* Right — image */}
-        <FadeIn delay={0.2} className="relative">
-          <div className="relative aspect-[3/4] w-full max-w-md mx-auto lg:mx-0 rounded-2xl overflow-hidden bg-muted">
-            <picture>
-              <source srcSet="/her-portrait.webp" type="image/webp" />
-              <img
-                src="/her-portrait.jpg"
-                alt="Portrait of Her Teoh"
-                width={960}
-                height={1280}
-                loading="lazy"
-                decoding="async"
-                className="absolute inset-0 w-full h-full object-cover object-[center_30%] scale-110"
-              />
-            </picture>
-          </div>
         </FadeIn>
       </div>
     </section>
