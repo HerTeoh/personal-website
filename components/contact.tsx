@@ -2,6 +2,7 @@ import Link from "next/link";
 import FadeIn from "@/components/fade-in";
 import { hasReading } from "@/lib/reading";
 import { hasQuestions } from "@/lib/questions";
+import { hasPrinciples } from "@/lib/principles";
 
 export default function Contact() {
   return (
@@ -36,6 +37,11 @@ export default function Contact() {
             {hasReading() && (
               <Link href="/reading" className="hover:text-foreground transition-colors duration-200">
                 Reading
+              </Link>
+            )}
+            {hasPrinciples() && (
+              <Link href="/principles" className="hover:text-foreground transition-colors duration-200">
+                Principles
               </Link>
             )}
             {hasQuestions() && (
