@@ -115,6 +115,16 @@ export const credits: Credit[] = [
     category: "Animation",
   },
 
+  // Ideas & inspiration
+  {
+    name: "The /now page",
+    creator: "Derek Sivers",
+    href: "https://nownownow.com/about",
+    license: "Idea",
+    usedFor: "The /now page: what I'm focused on at the moment.",
+    category: "Ideas & inspiration",
+  },
+
   // Hosting & infrastructure
   {
     name: "GitHub Pages & GitHub Actions",

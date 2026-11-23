@@ -27,7 +27,10 @@ export default function Contact() {
         {/* Bottom credit line */}
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mt-20 font-sans text-xs text-muted-foreground tracking-wide">
           <p>Her Teoh &middot; Singapore</p>
-          <nav aria-label="Legal" className="flex gap-6">
+          <nav aria-label="Site" className="flex gap-6">
+            <Link href="/now" className="hover:text-foreground transition-colors duration-200">
+              Now
+            </Link>
             <Link href="/privacy" className="hover:text-foreground transition-colors duration-200">
               Privacy
             </Link>
