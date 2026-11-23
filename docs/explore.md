@@ -31,7 +31,7 @@ When something here gets adopted (an idea, a package, a component), move it into
 | ⬜ | `/writing` | Latest Substack posts pulled in automatically from the RSS feed (needs a Substack first). | |
 | ✅ | `/notes` | Short learnings tagged by theme (ASEAN markets, Operations, Building, Data), each with a seedling/evergreen status. | Live Nov 2026. Add a Markdown file to `content/notes/` (copy `_template.md`). |
 | ✅ | `/now` | What I'm reading, researching and working on this month. | Live Nov 2026. Edit `lib/now.ts` to update. |
-| ⬜ | `/bookshelf` | Books with one-line takeaways. | |
+| ✅ | `/reading` (instead of `/bookshelf`) | Articles, Substack posts and essays worth passing on, with one-line takeaways. | Built Nov 2026. Add items in `lib/reading.ts`; the footer link appears once there's one. |
 | ⬜ | `/principles` or `/mental-models` | Lessons from Neuron and the franchise, applied to investing. | |
 | ⬜ | `/questions` | Open questions I'm working through, e.g. "Why do ASEAN mid-caps trade at a discount?" | |
 

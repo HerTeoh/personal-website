@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import FadeIn from "@/components/fade-in";
+import ThemeFilter from "@/components/theme-filter";
 
 type Item = {
   slug: string;
@@ -18,33 +19,9 @@ export default function NotesList({ notes, tags }: { notes: Item[]; tags: string
   const [active, setActive] = useState<string | null>(null);
   const shown = active ? notes.filter((n) => n.tags.includes(active)) : notes;
 
-  const chip = (label: string, value: string | null) => {
-    const on = active === value;
-    return (
-      <button
-        key={label}
-        type="button"
-        onClick={() => setActive(value)}
-        aria-pressed={on}
-        className={`px-4 py-2 rounded-full border font-sans text-xs transition-colors duration-200 ${
-          on
-            ? "bg-foreground text-background border-foreground"
-            : "border-border text-muted-foreground hover:border-accent hover:text-foreground"
-        }`}
-      >
-        {label}
-      </button>
-    );
-  };
-
   return (
     <>
-      {tags.length > 1 && (
-        <div role="group" aria-label="Filter by theme" className="flex flex-wrap gap-3 mb-12">
-          {chip("All", null)}
-          {tags.map((t) => chip(t, t))}
-        </div>
-      )}
+      <ThemeFilter tags={tags} active={active} onChange={setActive} />
 
       <ul className="divide-y divide-border border-y border-border">
         {shown.map((n) => (
