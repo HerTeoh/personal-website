@@ -1,4 +1,5 @@
 import FadeIn from "@/components/fade-in";
+import { site } from "@/lib/site";
 
 export default function Hero() {
   return (
@@ -9,7 +10,7 @@ export default function Hero() {
           HerTeoh.com
         </span>
         <nav aria-label="Primary navigation">
-          <ul className="flex gap-8">
+          <ul className="flex gap-6 sm:gap-8">
             {["About", "Contact"].map((item) => (
               <li key={item}>
                 <a
@@ -60,6 +61,19 @@ export default function Hero() {
             Data. Operations. Entrepreneurship.{" "}
             <span className="text-foreground font-medium">Now markets.</span>
           </p>
+          </FadeIn>
+
+          {/* Primary call to action */}
+          <FadeIn delay={0.6} y={12}>
+          <a
+            href={site.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 mt-10 px-6 py-3 rounded-full bg-foreground text-background font-sans text-sm hover:bg-accent-strong transition-colors duration-200"
+          >
+            Connect on LinkedIn
+            <span aria-hidden="true">&rarr;</span>
+          </a>
           </FadeIn>
         </div>
       </main>

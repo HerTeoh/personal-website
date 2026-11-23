@@ -1,3 +1,7 @@
+import Link from "next/link";
+import { site } from "@/lib/site";
+import FadeIn from "@/components/fade-in";
+
 const LinkedInIcon = () => (
   <svg
     width="20"
@@ -36,8 +40,9 @@ const GitHubIcon = () => (
 const links = [
   {
     label: "LinkedIn",
-    href: "https://www.linkedin.com/in/herteoh/",
+    href: site.linkedin,
     icon: <LinkedInIcon />,
+    primary: true,
   },
   {
     label: "HerTeoh",
@@ -46,12 +51,11 @@ const links = [
   },
   {
     label: "JHTeoh",
-    href: "https://github.com/JHTeoh/",
+    href: "https://github.com/JHTeoh",
     icon: <GitHubIcon />,
   },
 ];
 
-import FadeIn from "@/components/fade-in";
 
 export default function Contact() {
   return (
@@ -79,13 +83,18 @@ export default function Contact() {
 
         {/* Links */}
         <ul className="flex flex-col sm:flex-row flex-wrap gap-4">
-          {links.map(({ label, href, icon }) => (
-            <li key={label}>
+          {links.map(({ label, href, icon, primary }) => (
+            <li key={href}>
               <a
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 px-5 py-3 rounded-full border border-border text-foreground hover:border-accent hover:text-accent transition-colors duration-200 font-sans text-sm"
+                aria-label={primary ? undefined : `GitHub: ${label}`}
+                className={
+                  primary
+                    ? "inline-flex items-center gap-3 px-5 py-3 rounded-full border border-foreground bg-foreground text-background hover:bg-accent-strong hover:border-accent-strong transition-colors duration-200 font-sans text-sm"
+                    : "inline-flex items-center gap-3 px-5 py-3 rounded-full border border-border text-foreground hover:border-accent-strong hover:text-accent-strong transition-colors duration-200 font-sans text-sm"
+                }
               >
                 {icon}
                 {label}
@@ -95,15 +104,20 @@ export default function Contact() {
         </ul>
 
         {/* Bottom credit line */}
-        <p className="font-sans text-xs text-muted-foreground mt-20 tracking-wide">
-          Her Teoh &middot; Singapore &middot;{" "}
-          <a
-            href="/credits"
-            className="hover:text-accent transition-colors duration-200"
-          >
-            Credits
-          </a>
-        </p>
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mt-20 font-sans text-xs text-muted-foreground tracking-wide">
+          <p>Her Teoh &middot; Singapore</p>
+          <nav aria-label="Legal" className="flex gap-6">
+            <Link href="/privacy" className="hover:text-foreground transition-colors duration-200">
+              Privacy
+            </Link>
+            <Link href="/terms" className="hover:text-foreground transition-colors duration-200">
+              Terms
+            </Link>
+            <Link href="/credits" className="hover:text-foreground transition-colors duration-200">
+              Credits
+            </Link>
+          </nav>
+        </div>
       </FadeIn>
     </footer>
   );
