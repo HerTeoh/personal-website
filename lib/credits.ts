@@ -128,7 +128,7 @@ export const credits: Credit[] = [
     creator: "Matt Perry & contributors",
     href: "https://motion.dev",
     license: "MIT",
-    usedFor: "Fade-in animations as sections scroll into view.",
+    usedFor: "Fade-ins and the scroll-linked home page: the hero hand-off and the career chapters' progress line.",
     category: "Animation",
   },
 
