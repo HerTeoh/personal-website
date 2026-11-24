@@ -43,8 +43,47 @@ body {
   outline-offset: 3px;
 }
 
+/* Buttons that physically press down (site-wide) */
+.press {
+  box-shadow: 0 3px 0 var(--border);
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background-color 0.2s ease;
+}
+.press:active {
+  transform: translateY(3px);
+  box-shadow: 0 0 0 var(--border);
+}
+
+/* Links that read as part of a sentence ("Where to next") */
+.inline-link {
+  color: var(--accent-strong);
+  border-bottom: 2px solid var(--accent);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+.inline-link:hover {
+  background-color: var(--accent);
+  color: var(--accent-foreground);
+}
+
+/* Blinking terminal caret */
+.caret { animation: caret-blink 1.1s steps(1) infinite; }
+@keyframes caret-blink { 50% { opacity: 0; } }
+
+/* Markets coverage ticker */
+.tape { animation: tape-scroll 46s linear infinite; }
+.tape:hover { animation-play-state: paused; }
+@keyframes tape-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* Data chapter: dots travelling the whole pipeline */
+.pipe-dot {
+  offset-path: path("M84 119 H344 V160 H208 V207 H344 V250 H146 V215 H84 V288 H470 V204");
+  animation: pipe-travel 8s linear infinite;
+}
+@keyframes pipe-travel { from { offset-distance: 0%; } to { offset-distance: 100%; } }
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
+  .press, .press:active { transform: none; transition: none; }
+  .caret, .tape, .pipe-dot { animation: none; }
 }
