@@ -27,8 +27,8 @@ const edges = [
   "M236 146 H246 V101 H252", // EC2 → Redshift (load)
   "M188 167 V248", // EC2 → S3 (archive)
   "M352 101 H380", // Redshift → consumers
-  "M72 212 V310 H380", // replica → MDS API (runs below S3)
-  "M370 310 V220 H380", // replica → consumers (branch)
+  "M352 88 H364 V54 H380", // Redshift → MDS API
+  "M72 212 V310 H372 V262 H380", // replica → consumers (runs below S3)
 ];
 
 const edgeLabels = [
@@ -39,9 +39,9 @@ const edgeLabels = [
 ];
 
 const consumers = [
-  { y: 74, name: "Tableau", role: "dashboards" },
-  { y: 128, name: "ML scripts", role: "machine learning" },
-  { y: 182, name: "Internal reports", role: "reporting" },
+  { y: 126, name: "Tableau", role: "dashboards" },
+  { y: 180, name: "ML scripts", role: "machine learning" },
+  { y: 234, name: "Internal reports", role: "reporting" },
 ];
 
 const mono = (size: number, weight = 400) => ({ font: `${weight} ${size}px var(--font-mono), monospace` });
@@ -91,7 +91,7 @@ export default function DataArchitecture() {
         viewBox="0 0 520 352"
         className="block w-full rounded-xl bg-[#F7F0E5]"
         role="img"
-        aria-label="Architecture diagram: inside an AWS account with IAM roles on every service, the primary RDS app database replicates to a read replica. EC2 ETL jobs extract from the replica, load Redshift, the data warehouse, and archive to S3, a cold data lake. Tableau dashboards, machine-learning scripts and internal reports read from Redshift or the RDS replica, and the replica also serves the Mobility Data Specification (MDS) API."
+        aria-label="Architecture diagram: inside an AWS account with IAM roles on every service, the primary RDS app database replicates to a read replica. EC2 ETL jobs extract from the replica, load Redshift, the data warehouse, and archive to S3, a cold data lake. Redshift serves the Mobility Data Specification (MDS) API, and Tableau dashboards, machine-learning scripts and internal reports read from Redshift or the RDS replica."
       >
         <defs>
           <pattern id="bp-grid" width="16" height="16" patternUnits="userSpaceOnUse">
@@ -142,10 +142,15 @@ export default function DataArchitecture() {
           <text key={l.t} x={l.x} y={l.y} textAnchor={l.anchor as "start" | "middle"} fill="#5A4636" style={mono(8)}>{l.t}</text>
         ))}
 
+        {/* MDS API, served from Redshift */}
+        <rect x="384" y="32" width="128" height="44" rx="8" fill={boxFill} stroke="#2C1F14" strokeWidth={1.4} strokeDasharray={boxDash} />
+        <text x="448" y="50" textAnchor="middle" fill="#2C1F14" style={sans(12)}>MDS API</text>
+        <text x="448" y="65" textAnchor="middle" fill="#5A4636" style={mono(8)}>mobility data spec</text>
+
         {/* What reads from the warehouse or the replica */}
-        <rect x="384" y="40" width="128" height="196" rx="8" fill="#2C1F14" />
-        <text x="396" y="58" fill="#CDBBA7" style={mono(9)}>reads from Redshift</text>
-        <text x="396" y="69" fill="#CDBBA7" style={mono(9)}>or the RDS replica</text>
+        <rect x="384" y="92" width="128" height="196" rx="8" fill="#2C1F14" />
+        <text x="396" y="110" fill="#CDBBA7" style={mono(9)}>reads from Redshift</text>
+        <text x="396" y="121" fill="#CDBBA7" style={mono(9)}>or the RDS replica</text>
         {consumers.map((c) => (
           <g key={c.name}>
             <rect x="394" y={c.y + 4} width="108" height="42" rx="6" fill="#3A2B1E" stroke="#5A4636" strokeWidth={1} />
@@ -153,10 +158,6 @@ export default function DataArchitecture() {
             <text x="448" y={c.y + 37} textAnchor="middle" fill="#CDBBA7" style={mono(8.5)}>{c.role}</text>
           </g>
         ))}
-
-        <rect x="384" y="288" width="128" height="44" rx="8" fill={boxFill} stroke="#2C1F14" strokeWidth={1.4} strokeDasharray={boxDash} />
-        <text x="448" y="306" textAnchor="middle" fill="#2C1F14" style={sans(12)}>MDS API</text>
-        <text x="448" y="321" textAnchor="middle" fill="#5A4636" style={mono(8)}>mobility data spec</text>
 
         <path d="M18 342 H34" stroke="#5A4636" strokeWidth={2} />
         <text x="40" y="345" fill="#5A4636" style={mono(9)}>data</text>
