@@ -12,16 +12,16 @@ permissions:
   pages: write
   id-token: write
 
+# One deployment at a time. Queued runs wait instead of cancelling a deployment
+# that's already in progress (as in GitHub's own Pages starter workflows).
 concurrency:
   group: pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
-  build-and-deploy:
+  # Build the static site and upload it as the Pages artifact.
+  build:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
 
@@ -50,5 +50,15 @@ jobs:
         with:
           path: out
 
+  # Deploy in a separate job, after the build job (and its artifact upload) has finished.
+  # Running deploy-pages in the same job straight after the upload intermittently failed
+  # with "No artifacts named github-pages were found".
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
       - id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
