@@ -126,7 +126,7 @@ export const credits: Credit[] = [
     creator: "JetBrains",
     href: "https://www.jetbrains.com/lp/mono/",
     license: "OFL-1.1",
-    usedFor: "The terminal touches: labels, the ⌘K menu and the status bar.",
+    usedFor: "The terminal touches: labels, the ⌘K menu and the status bar. Self-hosted via Fontsource.",
     category: "Typography",
   },
   {
