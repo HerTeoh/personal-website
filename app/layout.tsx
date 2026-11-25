@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
-import { JetBrains_Mono, Playfair_Display } from "next/font/google";
+import { Playfair_Display } from "next/font/google";
+import localFont from "next/font/local";
 import Analytics from "@/components/analytics";
 import CookieNotice from "@/components/cookie-notice";
 import { site } from "@/lib/site";
@@ -26,10 +27,16 @@ const playfair = Playfair_Display({
   style: ["normal", "italic"],
 });
 
-const mono = JetBrains_Mono({
-  subsets: ["latin"],
+// JetBrains Mono is self-hosted (app/fonts, OFL-1.1, from @fontsource/jetbrains-mono 5.3.0) rather than
+// fetched from Google Fonts at build time: Google sometimes serves this font at URLs without a file
+// extension, which next/font/google can't handle, and the deploy build fails.
+const mono = localFont({
+  src: [
+    { path: "./fonts/jetbrains-mono-latin-400-normal.woff2", weight: "400", style: "normal" },
+    { path: "./fonts/jetbrains-mono-latin-500-normal.woff2", weight: "500", style: "normal" },
+  ],
   variable: "--font-mono",
-  weight: ["400", "500"],
+  display: "swap",
 });
 
 /** Short descriptions shown next to each entry in the ⌘K menu. */
