@@ -85,6 +85,15 @@ export const credits: Credit[] = [
     category: "Framework & tooling",
   },
 
+  {
+    name: "Natural Earth & world-atlas",
+    creator: "Natural Earth (public domain) · world-atlas by Mike Bostock",
+    href: "https://www.naturalearthdata.com",
+    license: "Public domain · ISC",
+    usedFor: "The simplified world map in the Foundation chapter.",
+    category: "Icons & graphics",
+  },
+
   // Styling
   {
     name: "Tailwind CSS",
@@ -113,6 +122,14 @@ export const credits: Credit[] = [
     category: "Typography",
   },
   {
+    name: "JetBrains Mono",
+    creator: "JetBrains",
+    href: "https://www.jetbrains.com/lp/mono/",
+    license: "OFL-1.1",
+    usedFor: "The terminal touches: labels, the ⌘K menu and the status bar.",
+    category: "Typography",
+  },
+  {
     name: "Inter",
     creator: "Rasmus Andersson",
     href: "https://rsms.me/inter/",
@@ -128,7 +145,7 @@ export const credits: Credit[] = [
     creator: "Matt Perry & contributors",
     href: "https://motion.dev",
     license: "MIT",
-    usedFor: "Fade-ins and the scroll-linked home page: the hero hand-off and the career chapters' progress line.",
+    usedFor: "Fade-ins and the scroll-driven home page: the hero hand-off and the chapter diagrams.",
     category: "Animation",
   },
 
