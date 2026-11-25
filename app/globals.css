@@ -75,7 +75,7 @@ body {
 
 /* Data chapter: dots travelling the whole pipeline */
 .pipe-dot {
-  offset-path: path("M84 119 H344 V160 H208 V207 H344 V250 H146 V215 H84 V288 H470 V204");
+  offset-path: path("M72 101 V191 H130 V146 H246 V101 H380");
   animation: pipe-travel 8s linear infinite;
 }
 @keyframes pipe-travel { from { offset-distance: 0%; } to { offset-distance: 100%; } }
