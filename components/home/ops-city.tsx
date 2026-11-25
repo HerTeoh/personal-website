@@ -95,6 +95,7 @@ export default function OpsCity() {
         <span>● service delivery</span>
         <span>● fleet efficiency</span>
         <span>● supply planning</span>
+        <span>● S&amp;OP</span>
       </p>
     </figure>
   );

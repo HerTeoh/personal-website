@@ -11,28 +11,37 @@ const NOTES = [
   "stage 3 · maintaining · ● jobs healthy",
 ];
 
+// AWS services inside the account.
 const nodes = [
-  { x: 36, y: 98, name: "RDS", role: "app database" },
-  { x: 160, y: 98, name: "EC2", role: "extract jobs" },
-  { x: 296, y: 98, name: "S3", role: "raw zone" },
-  { x: 160, y: 186, name: "EC2", role: "transform jobs" },
-  { x: 296, y: 186, name: "S3", role: "staged zone" },
-  { x: 36, y: 186, name: "Redshift", role: "data warehouse" },
+  { x: 24, y: 80, name: "RDS", role: "app DB · primary" },
+  { x: 24, y: 170, name: "RDS", role: "read replica" },
+  { x: 140, y: 125, name: "EC2", role: "ETL jobs" },
+  { x: 256, y: 80, name: "Redshift", role: "data warehouse" },
+  { x: 140, y: 252, name: "S3", role: "cold data lake" },
 ];
 
+// Data flows (arrows).
 const edges = [
-  "M132 119 H158",
-  "M256 119 H294",
-  "M344 140 V160 H208 V184",
-  "M256 207 H294",
-  "M344 228 V250 H146 V215 H134",
-  "M84 228 V288 H470 V206",
+  "M72 122 V166", // RDS → replica (replication)
+  "M120 191 H130 V146 H136", // replica → EC2 (extract)
+  "M236 146 H246 V101 H252", // EC2 → Redshift (load)
+  "M188 167 V248", // EC2 → S3 (archive)
+  "M352 101 H380", // Redshift → consumers
+  "M72 212 V310 H380", // replica → MDS API (runs below S3)
+  "M370 310 V220 H380", // replica → consumers (branch)
 ];
 
 const edgeLabels = [
-  { x: 300, y: 156, t: "transform" },
-  { x: 226, y: 246, t: "COPY · load" },
-  { x: 300, y: 284, t: "query" },
+  { x: 76, y: 148, t: "replicate", anchor: "start" },
+  { x: 134, y: 182, t: "extract", anchor: "start" },
+  { x: 250, y: 136, t: "load", anchor: "start" },
+  { x: 192, y: 212, t: "archive", anchor: "start" },
+];
+
+const consumers = [
+  { y: 74, name: "Tableau", role: "dashboards" },
+  { y: 128, name: "ML scripts", role: "machine learning" },
+  { y: 182, name: "Internal reports", role: "reporting" },
 ];
 
 const mono = (size: number, weight = 400) => ({ font: `${weight} ${size}px var(--font-mono), monospace` });
@@ -56,6 +65,8 @@ export default function DataArchitecture() {
   const planned = s === 0;
   const edgeColor = planned ? "#B9A894" : "#5A4636";
   const dash = planned ? "5 5" : undefined;
+  const boxFill = planned ? "transparent" : "#FAF7F2";
+  const boxDash = planned ? "4 3" : undefined;
 
   return (
     <figure ref={ref} className="m-0">
@@ -77,10 +88,10 @@ export default function DataArchitecture() {
         ))}
       </p>
       <svg
-        viewBox="0 0 520 340"
+        viewBox="0 0 520 352"
         className="block w-full rounded-xl bg-[#F7F0E5]"
         role="img"
-        aria-label="Architecture diagram: inside an AWS account with IAM roles on every service, RDS feeds EC2 extract jobs into an S3 raw zone; EC2 transform jobs write to an S3 staged zone; that is loaded into Redshift, the data warehouse, which Tableau queries for dashboards on a scheduled refresh."
+        aria-label="Architecture diagram: inside an AWS account with IAM roles on every service, the primary RDS app database replicates to a read replica. EC2 ETL jobs extract from the replica, load Redshift, the data warehouse, and archive to S3, a cold data lake. Tableau dashboards, machine-learning scripts and internal reports read from Redshift or the RDS replica, and the replica also serves the Mobility Data Specification (MDS) API."
       >
         <defs>
           <pattern id="bp-grid" width="16" height="16" patternUnits="userSpaceOnUse">
@@ -90,15 +101,16 @@ export default function DataArchitecture() {
             <path d="M0 0 L8 4 L0 8 Z" fill={edgeColor} />
           </marker>
         </defs>
-        <rect width="520" height="340" fill="url(#bp-grid)" />
+        <rect width="520" height="352" fill="url(#bp-grid)" />
 
-        <rect x="8" y="8" width="404" height="300" rx="10" fill="none" stroke="#5A4636" strokeWidth={1.2} strokeDasharray="6 4" />
+        {/* AWS account, IAM and VPC */}
+        <rect x="8" y="8" width="360" height="316" rx="10" fill="none" stroke="#5A4636" strokeWidth={1.2} strokeDasharray="6 4" />
         <text x="18" y="24" fill="#5A4636" style={mono(10, 500)}>AWS account</text>
-        <rect x="24" y="32" width="372" height="22" rx="6" fill="#2C1F14" />
+        <rect x="24" y="32" width="328" height="22" rx="6" fill="#2C1F14" />
         <text x="34" y="47" fill="#FAF7F2" style={mono(10)}>IAM · roles &amp; policies scoped per service</text>
-        <path d="M84 54 V98 M208 54 V98 M344 54 V98" fill="none" stroke="#8C7A68" strokeWidth={1} strokeDasharray="2 3" />
-        <rect x="20" y="66" width="260" height="232" rx="8" fill="none" stroke="#8C7A68" strokeWidth={1} strokeDasharray="3 3" />
-        <text x="30" y="80" fill="#8C7A68" style={mono(10)}>VPC</text>
+        <path d="M72 54 V80 M188 54 V125 M304 54 V80" fill="none" stroke="#8C7A68" strokeWidth={1} strokeDasharray="2 3" />
+        <rect x="16" y="64" width="344" height="180" rx="8" fill="none" stroke="#8C7A68" strokeWidth={1} strokeDasharray="3 3" />
+        <text x="312" y="238" fill="#8C7A68" style={mono(10)}>VPC</text>
 
         {edges.map((d) => (
           <path
@@ -120,36 +132,37 @@ export default function DataArchitecture() {
 
         {nodes.map((n) => (
           <g key={n.role}>
-            <rect
-              x={n.x}
-              y={n.y}
-              width="96"
-              height="42"
-              rx="6"
-              fill={planned ? "transparent" : "#FAF7F2"}
-              stroke="#2C1F14"
-              strokeWidth={1.4}
-              strokeDasharray={planned ? "4 3" : undefined}
-            />
+            <rect x={n.x} y={n.y} width="96" height="42" rx="6" fill={boxFill} stroke="#2C1F14" strokeWidth={1.4} strokeDasharray={boxDash} />
             <text x={n.x + 48} y={n.y + 18} textAnchor="middle" fill="#2C1F14" style={sans(12)}>{n.name}</text>
             <text x={n.x + 48} y={n.y + 33} textAnchor="middle" fill="#5A4636" style={mono(9)}>{n.role}</text>
           </g>
         ))}
-        <rect x="428" y="150" width="84" height="54" rx="6" fill="#2C1F14" />
-        <text x="470" y="174" textAnchor="middle" fill="#FAF7F2" style={sans(12)}>Tableau</text>
-        <text x="470" y="189" textAnchor="middle" fill="#CDBBA7" style={mono(9)}>dashboards</text>
 
         {edgeLabels.map((l) => (
-          <text key={l.t} x={l.x} y={l.y} textAnchor="middle" fill="#5A4636" style={mono(8)}>{l.t}</text>
+          <text key={l.t} x={l.x} y={l.y} textAnchor={l.anchor as "start" | "middle"} fill="#5A4636" style={mono(8)}>{l.t}</text>
         ))}
-        <text x="470" y="132" textAnchor="middle" fill="#5A4636" style={mono(8)}>↻ scheduled</text>
-        <text x="470" y="142" textAnchor="middle" fill="#5A4636" style={mono(8)}>refresh</text>
 
-        <path d="M18 322 H34" stroke="#5A4636" strokeWidth={2} />
-        <text x="40" y="325" fill="#5A4636" style={mono(9)}>data</text>
-        <path d="M84 322 H100" stroke="#8C7A68" strokeWidth={1} strokeDasharray="2 3" />
-        <text x="106" y="325" fill="#5A4636" style={mono(9)}>access / control</text>
-        <text x="512" y="325" textAnchor="end" fill="#A34C1D" style={mono(10, 500)}>{NOTES[s]}</text>
+        {/* What reads from the warehouse or the replica */}
+        <rect x="384" y="40" width="128" height="196" rx="8" fill="#2C1F14" />
+        <text x="396" y="58" fill="#CDBBA7" style={mono(9)}>reads from Redshift</text>
+        <text x="396" y="69" fill="#CDBBA7" style={mono(9)}>or the RDS replica</text>
+        {consumers.map((c) => (
+          <g key={c.name}>
+            <rect x="394" y={c.y + 4} width="108" height="42" rx="6" fill="#3A2B1E" stroke="#5A4636" strokeWidth={1} />
+            <text x="448" y={c.y + 22} textAnchor="middle" fill="#FAF7F2" style={sans(11)}>{c.name}</text>
+            <text x="448" y={c.y + 37} textAnchor="middle" fill="#CDBBA7" style={mono(8.5)}>{c.role}</text>
+          </g>
+        ))}
+
+        <rect x="384" y="288" width="128" height="44" rx="8" fill={boxFill} stroke="#2C1F14" strokeWidth={1.4} strokeDasharray={boxDash} />
+        <text x="448" y="306" textAnchor="middle" fill="#2C1F14" style={sans(12)}>MDS API</text>
+        <text x="448" y="321" textAnchor="middle" fill="#5A4636" style={mono(8)}>mobility data spec</text>
+
+        <path d="M18 342 H34" stroke="#5A4636" strokeWidth={2} />
+        <text x="40" y="345" fill="#5A4636" style={mono(9)}>data</text>
+        <path d="M84 342 H100" stroke="#8C7A68" strokeWidth={1} strokeDasharray="2 3" />
+        <text x="106" y="345" fill="#5A4636" style={mono(9)}>access / control</text>
+        <text x="512" y="345" textAnchor="end" fill="#A34C1D" style={mono(10, 500)}>{NOTES[s]}</text>
       </svg>
     </figure>
   );

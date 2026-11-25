@@ -58,7 +58,8 @@ export default function Career() {
       >
         <p>
           My scope expanded from data into operations. I moved into a Global Operations Excellence role under the COO,
-          leading cross-regional initiatives in service delivery, fleet efficiency, and supply planning, driving
+          leading cross-regional initiatives in service delivery, fleet efficiency, supply planning, and sales and
+          operations planning (S&amp;OP), driving
           measurable improvements in cost efficiency across regional markets.
         </p>
       </Chapter>
