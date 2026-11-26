@@ -190,7 +190,7 @@ export const credits: Credit[] = [
     creator: "Martin Tournoij",
     href: "https://www.goatcounter.com",
     license: "EUPL-1.2",
-    usedFor: "Privacy-friendly, cookie-free visitor counts.",
+    usedFor: "Counting page views without cookies or personal data. See the privacy policy for what it records.",
     category: "Hosting & infrastructure",
   },
 ];

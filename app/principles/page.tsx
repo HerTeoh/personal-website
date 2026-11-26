@@ -3,13 +3,15 @@ import { pageMetadata } from "@/lib/seo";
 import FadeIn from "@/components/fade-in";
 import PrinciplesList from "@/components/principles-list";
 import { getNote } from "@/lib/notes";
-import { getPrinciples } from "@/lib/principles";
+import { getPrinciples, hasPrinciples } from "@/lib/principles";
 import { orderTags } from "@/lib/themes";
 
 export const metadata: Metadata = pageMetadata("/principles", {
   title: "Principles",
   description:
     "Lessons from data, operations and building a business, and how they carry into investing.",
+  // Kept out of search results until the first entry is added.
+  ...(hasPrinciples() ? {} : { robots: { index: false, follow: true } }),
 });
 
 export default function PrinciplesPage() {

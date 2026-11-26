@@ -70,7 +70,7 @@ export default function NowPage() {
                             href={item.href}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-foreground underline underline-offset-2 hover:text-accent transition-colors duration-200"
+                            className="text-foreground underline underline-offset-2 hover:text-accent-strong transition-colors duration-200"
                           >
                             {item.text}
                           </a>
@@ -92,7 +92,7 @@ export default function NowPage() {
             href="https://nownownow.com/about"
             target="_blank"
             rel="noopener noreferrer"
-            className="underline underline-offset-2 hover:text-accent"
+            className="underline underline-offset-2 hover:text-accent-strong"
           >
             now page
           </a>

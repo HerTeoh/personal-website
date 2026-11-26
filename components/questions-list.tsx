@@ -30,7 +30,7 @@ function QuestionItem({ q }: { q: Item }) {
           {q.note && (
             <Link
               href={`/notes/${q.note}`}
-              className="inline-block mt-2 text-sm underline underline-offset-2 hover:text-accent transition-colors duration-200"
+              className="inline-block mt-2 text-sm underline underline-offset-2 hover:text-accent-strong transition-colors duration-200"
             >
               {answered ? "More in my note" : "My note so far"} &rarr;
             </Link>
@@ -40,7 +40,7 @@ function QuestionItem({ q }: { q: Item }) {
       {!answered && q.note && (
         <Link
           href={`/notes/${q.note}`}
-          className="inline-block mt-3 font-sans text-sm text-foreground underline underline-offset-2 hover:text-accent transition-colors duration-200"
+          className="inline-block mt-3 font-sans text-sm text-foreground underline underline-offset-2 hover:text-accent-strong transition-colors duration-200"
         >
           My note so far &rarr;
         </Link>

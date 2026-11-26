@@ -3,13 +3,15 @@ import { pageMetadata } from "@/lib/seo";
 import FadeIn from "@/components/fade-in";
 import ReadingList from "@/components/reading-list";
 import { getNote } from "@/lib/notes";
-import { getReading, monthLabel } from "@/lib/reading";
+import { getReading, hasReading, monthLabel } from "@/lib/reading";
 import { orderTags } from "@/lib/themes";
 
 export const metadata: Metadata = pageMetadata("/reading", {
   title: "Reading",
   description:
     "Articles, Substack posts and essays Her Teoh found worth passing on, with a line on what stuck.",
+  // Kept out of search results until the first entry is added.
+  ...(hasReading() ? {} : { robots: { index: false, follow: true } }),
 });
 
 export default function ReadingPage() {

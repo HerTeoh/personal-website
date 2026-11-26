@@ -43,7 +43,7 @@ export default function ReadingList({ items, tags }: { items: Item[]; tags: stri
                           href={item.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="font-serif text-xl text-foreground hover:text-accent transition-colors duration-200"
+                          className="font-serif text-xl text-foreground hover:text-accent-strong transition-colors duration-200"
                         >
                           {item.title}
                           <span className="sr-only"> (opens in a new tab)</span>
@@ -66,7 +66,7 @@ export default function ReadingList({ items, tags }: { items: Item[]; tags: stri
                       {item.note && (
                         <Link
                           href={`/notes/${item.note}`}
-                          className="inline-block mt-2 text-foreground underline underline-offset-2 hover:text-accent transition-colors duration-200"
+                          className="inline-block mt-2 text-foreground underline underline-offset-2 hover:text-accent-strong transition-colors duration-200"
                         >
                           My note on this &rarr;
                         </Link>
