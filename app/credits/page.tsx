@@ -59,7 +59,7 @@ export default function CreditsPage() {
                         href={c.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="font-serif text-xl text-foreground hover:text-accent transition-colors duration-200"
+                        className="font-serif text-xl text-foreground hover:text-accent-strong transition-colors duration-200"
                       >
                         {c.name}
                       </a>

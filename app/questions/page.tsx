@@ -3,12 +3,14 @@ import { pageMetadata } from "@/lib/seo";
 import FadeIn from "@/components/fade-in";
 import QuestionsList from "@/components/questions-list";
 import { getNote } from "@/lib/notes";
-import { getQuestions, monthYear, type Question } from "@/lib/questions";
+import { getQuestions, hasQuestions, monthYear, type Question } from "@/lib/questions";
 import { orderTags } from "@/lib/themes";
 
 export const metadata: Metadata = pageMetadata("/questions", {
   title: "Questions",
   description: "Open questions Her Teoh is thinking about, and where the thinking has got to.",
+  // Kept out of search results until the first entry is added.
+  ...(hasQuestions() ? {} : { robots: { index: false, follow: true } }),
 });
 
 function withLabels(q: Question) {

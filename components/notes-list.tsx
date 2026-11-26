@@ -32,7 +32,7 @@ export default function NotesList({ notes, tags }: { notes: Item[]; tags: string
                   <span aria-label={n.statusLabel} title={n.statusLabel}>
                     {n.statusEmoji}
                   </span>
-                  <h2 className="font-serif text-2xl text-foreground group-hover:text-accent transition-colors duration-200">
+                  <h2 className="font-serif text-2xl text-foreground group-hover:text-accent-strong transition-colors duration-200">
                     {n.title}
                   </h2>
                 </div>

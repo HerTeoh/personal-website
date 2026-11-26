@@ -30,9 +30,11 @@ export default function Home() {
   return (
     <>
       <JsonLd data={[person, website]} />
-      <Hero />
-      <Career />
-      <WhereNext links={nextLinks()} />
+      <main>
+        <Hero />
+        <Career />
+        <WhereNext links={nextLinks()} />
+      </main>
       <StatusBar />
     </>
   );

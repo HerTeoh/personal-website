@@ -60,7 +60,7 @@ export default function PrinciplesList({ items, tags }: { items: Item[]; tags: s
                           href={p.essay}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="normal-case tracking-normal text-sm text-foreground underline underline-offset-2 hover:text-accent transition-colors duration-200"
+                          className="normal-case tracking-normal text-sm text-foreground underline underline-offset-2 hover:text-accent-strong transition-colors duration-200"
                         >
                           Read the essay &rarr;
                         </a>
@@ -68,7 +68,7 @@ export default function PrinciplesList({ items, tags }: { items: Item[]; tags: s
                       {p.note && (
                         <Link
                           href={`/notes/${p.note}`}
-                          className="normal-case tracking-normal text-sm text-foreground underline underline-offset-2 hover:text-accent transition-colors duration-200"
+                          className="normal-case tracking-normal text-sm text-foreground underline underline-offset-2 hover:text-accent-strong transition-colors duration-200"
                         >
                           More in my note &rarr;
                         </Link>
